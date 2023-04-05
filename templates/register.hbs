@@ -1,0 +1,74 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link
+      rel='stylesheet'
+      href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'
+    />
+    <style>
+      /* Center the card on the page */ body { display: flex; justify-content:
+      center; align-items: center; height: 100vh; background-image:
+      url('/images/rain.jpg'); background-size: cover; } /* Set the height of
+      the card to 70% of the screen */ .card { width: 50%; border: 2px solid
+      white; } /* Set the background color to black */
+
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+
+    <div class='card mt-4'>
+      <div class='row'>
+        <div class='col-md-6 bg-dark text-white p-5'>
+          <h2 style='text-align: center'>Contact Manager</h2>
+          <p class='lead' style='text-align: center'>"Stay organized and
+            connected with your contacts using our powerful contact management
+            system. Keep track of important information and never miss a beat."</p>
+        </div>
+        <div class='col-md-6 p-5'>
+          <h2>Register</h2>
+          {{#if error}}
+            <div class='alert alert-danger'>
+              {{error}}
+            </div>
+          {{/if}}
+          <form action='/api/users/register' method='POST'>
+            <div class='form-group'>
+              <label for='name'>Name</label>
+              <input type='text' class='form-control' id='name' name='name' />
+
+            </div>
+            <div class='form-group'>
+              <label for='email'>Email Address</label>
+              <input
+                type='email'
+                class='form-control'
+                id='email'
+                name='email'
+              />
+            </div>
+            <div class='form-group'>
+              <label for='password'>Password</label>
+              <input
+                type='password'
+                class='form-control'
+                id='password'
+                name='password'
+              />
+            </div>
+            <button type='submit' class='btn btn-primary'>Register User</button>
+            <p style='padding-top: 10px'>Already have an account?
+              <a href='/api/users/login'>Login here</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js'></script>
+    <script
+      src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
+    ></script>
+  </body>
+</html>

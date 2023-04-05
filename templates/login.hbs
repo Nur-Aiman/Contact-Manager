@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <title>Contact Manager Login</title>
+    <link
+      rel='stylesheet'
+      href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'
+    />
+    <style>
+
+      /* Center the card on the page */ body { display: flex; justify-content:
+      center; align-items: center; height: 100vh; background-image:
+      url('/images/green.jpg'); background-size: cover; } /* Set the height of
+      the card to 70% of the screen */ .card { width: 50%; border: 2px solid
+      white } /* Set the background color to black */
+
+    </style>
+  </head>
+  <body>
+    <div class='card'>
+      <div class='row'>
+        <div class='col-md-6 bg-dark text-white p-5'>
+          <h2 style='text-align: center'>Contact Manager</h2>
+          <p class='lead' style='text-align: center'>"Stay organized and
+            connected with your contacts using our powerful contact management
+            system. Keep track of important information and never miss a beat."</p>
+        </div>
+        <div class='col-md-6 p-5'>
+          <h2>Login</h2>
+          {{#if error}}
+            <div class='alert alert-danger'>
+              {{error}}
+            </div>
+          {{/if}}
+          <form action='/api/users/login' method='POST'>
+            <div class='form-group'>
+              <label for='email'>Email:</label>
+              <input
+                type='email'
+                class='form-control'
+                id='email'
+                name='email'
+                required
+              />
+            </div>
+            <div class='form-group'>
+              <label for='password'>Password:</label>
+              <input
+                type='password'
+                class='form-control'
+                id='password'
+                name='password'
+                required
+              />
+            </div>
+            <button type='submit' class='btn btn-primary'>Log in</button>
+            <p style='padding-top: 10px'>New user?
+              <a href='/api/users/register'>Register here</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js'></script>
+    <script
+      src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
+    ></script>
+  </body>
+</html>

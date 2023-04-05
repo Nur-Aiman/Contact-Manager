@@ -1,0 +1,65 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <!-- Add Bootstrap CSS -->
+    <link
+      rel='stylesheet'
+      href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'
+    />
+    <title>My Contact</title>
+    <style>
+      body { background-image: url('/images/city.jpg'); background-size: cover;}
+      .container { display: flex; flex-direction: column; justify-content:
+      center; align-items: center; height: 100vh; color: white;
+      background-color: rgba(0, 0, 0, 0);} .btn { font-size: 20px; padding: 10px
+      20px; margin-top: 50px;}
+    </style>
+  </head>
+  <body>
+    <div class='container'>
+      <h1 style='font-size: 80px;'>Welcome to contact manager</h1>
+
+      <h2>Hi
+        <span
+          style='text-transform: capitalize; font-family: sans-serif; font-style: italic;'
+        >{{name}}! </span>Click the button below to start manage your contacts</h2>
+
+      <div class='btn-group' role='group'>
+        <form action='/api/contacts' method='GET'>
+          <button
+            id='view-contacts-btn'
+            class='btn btn-primary'
+            type='submit'
+          >View all contacts</button>
+        </form>
+        <form action='/api/contacts/addContact' method='GET'>
+          <button
+            id='view-contacts-btn'
+            class='btn btn-primary'
+            type='submit'
+          >Add new contact</button>
+        </form>
+
+      </div>
+      <a
+        href='/api/users/current'
+        class='btn btn-link'
+        style='color: white;
+    text-decoration: underline;'
+      >My Profile</a>
+      <a
+        href='/api/users/logout'
+        class='btn btn-link'
+        style='color: white;
+    text-decoration: underline;'
+      >Logout</a>
+    </div>
+    <!-- Add Bootstrap JS and jQuery -->
+    <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js'></script>
+    <script
+      src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
+    ></script>
+  </body>
+</html>

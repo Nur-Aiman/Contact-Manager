@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <link
+      href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css'
+      rel='stylesheet'
+    />
+    <script
+      src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js'
+    ></script>
+
+    <title>Contact List</title>
+    <style>
+      body { background-image: url('/images/city.jpg'); background-size: cover;}
+      table { margin: 0 auto; font-size: 18px; border-collapse: collapse; width:
+      80%; max-width: 800px; } th, td { font-size: 25px; padding: 10px;
+      text-align: left; background-color: #f2f2f2; border: 1px solid #ddd; } th
+      { background-color: #f2f2f2; } #view-contacts-btn { color: black;
+      background-color: transparent; border-color: transparent; font-size: 25px;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <nav class='navbar navbar-expand-sm bg-dark navbar-dark'>
+      <div cass='container-fluid'>
+        <h4>
+          <ul class='navbar-nav'>
+            <li class="'nav-item"><a class='nav-link' href='/main'>Main Page</a></li>
+            <li class="'nav-item"><a
+                class='nav-link'
+                href='/api/contacts/addContact'
+              >Add Contact</a></li>
+          </ul>
+        </h4>
+      </div>
+    </nav>
+
+    <table>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Contact Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each contacts}}
+          <tr>
+            <td>{{@index}}</td>
+            <td>
+              <form action='/api/contacts/{{_id}}' method='GET'>
+                <button
+                  id='view-contacts-btn'
+                  class='btn btn-primary'
+                  type='submit'
+                ><span
+                    style='text-transform: capitalize; font-family: sans-serif;'
+                  >{{name}} </span></button>
+              </form>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </body>
+</html>
