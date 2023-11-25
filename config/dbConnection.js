@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+mongoose.set('strictQuery', false);
 require('dotenv').config()
 
 module.exports = () => {
@@ -7,7 +8,7 @@ module.exports = () => {
         .then(() => {
             console.log('mongo connected')
         })
-        .catch(() => {
+        .catch((err) => {
             console.log('failed to connect')
         })
 }

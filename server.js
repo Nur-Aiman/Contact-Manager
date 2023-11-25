@@ -10,6 +10,7 @@ const dotenv = require('dotenv').config()
 
 const session = require('express-session')
 const flash = require('connect-flash')
+const MongoStore = require('connect-mongo');
 
 const Contact = require('./models/contactModel')
 const templatePath = path.join(__dirname, './templates')
@@ -29,9 +30,10 @@ app.use(
 
 app.use(
   session({
-    secret: 'wefrefrefegtrgtrbrrgergegt',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_DB_URI }),
   })
 )
 
